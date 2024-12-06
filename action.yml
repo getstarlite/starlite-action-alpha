@@ -14,11 +14,11 @@ inputs:
     description: 'Record ID'
     required: false
   skip-catalog:
-    description: 'Skip running the catalog script?'
+    description: 'Skip updating the record (manifest file)?'
     required: false
     default: 'false'
   skip-standards:
-    description: 'Skip running the standards script?'
+    description: 'Skip updating the standards?'
     required: false
     default: 'false'
   skip-deployment:
