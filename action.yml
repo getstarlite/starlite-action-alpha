@@ -13,7 +13,7 @@ inputs:
   record-id:
     description: 'Record ID'
     required: false
-  skip-catalog:
+  skip-record:
     description: 'Skip updating the record (manifest file)?'
     required: false
     default: 'false'
@@ -28,17 +28,17 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Run catalog script
-      if: ${{ inputs.skip-catalog == 'false' }}
-      run: ${{ github.action_path }}/starlite-action.sh --org-id ${{ inputs.org-id }} --record-id ${{ inputs.record-id }} --token ${{ inputs.api-key }} --action "catalog"
+    - name: Update record
+      if: ${{ inputs.skip-record == 'false' }}
+      run: ${{ github.action_path }}/starlite-action.sh --org-id ${{ inputs.org-id }} --record-id ${{ inputs.record-id }} --token ${{ inputs.api-key }} --action "record"
       shell: bash
 
-    - name: Run standards script
+    - name: Update standards
       if: ${{ inputs.skip-standards == 'false' }}
       run: ${{ github.action_path }}/starlite-action.sh --org-id ${{ inputs.org-id }} --record-id ${{ inputs.record-id }} --token ${{ inputs.api-key }} --action "standards"
       shell: bash
 
-    - name: Run deployment script
+    - name: Create deployment event
       if: ${{ inputs.skip-deployment == 'false' }}
       run: ${{ github.action_path }}/starlite-action.sh --org-id ${{ inputs.org-id }} --record-id ${{ inputs.record-id }} --token ${{ inputs.api-key }} --action "deployment"
       shell: bash
