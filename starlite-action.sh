@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-ENDPOINT_BASE="https://www.mockachino.com/2cf87bb2-b2ea-4c"
+ENDPOINT_BASE="https://78ryomnr49.execute-api.eu-north-1.amazonaws.com" #"https://www.mockachino.com/2cf87bb2-b2ea-4c"
 
 parse_arguments() {
   while [[ $# -gt 0 ]]; do

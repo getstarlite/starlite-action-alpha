@@ -39,8 +39,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        #with:
-        #  fetch-depth: 0 # We need to have access to the full Git history
 
       # Do your things here: build, test, deploy...
 
