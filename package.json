@@ -19,12 +19,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mikaelvesavuori/starlite-action-alpha"
+    "url": "git+https://github.com/getstarlite/starlite-action-alpha"
   },
   "bugs": {
-    "url": "https://github.com/mikaelvesavuori/starlite-action-alpha/issues"
+    "url": "https://github.com/getstarlite/starlite-action-alpha/issues"
   },
-  "homepage": "https://github.com/mikaelvesavuori/starlite-alpha-action",
+  "homepage": "https://github.com/getstarlite/starlite-alpha-action",
   "scripts": {
     "test": "bats test.bats",
     "deploy": "bash starlite-action.sh --org-id \"demoorg\" --record-id \"demorecord\" --token \"abc123\" --action \"deployment\"",
