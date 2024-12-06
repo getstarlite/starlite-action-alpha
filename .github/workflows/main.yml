@@ -1,0 +1,24 @@
+on: [push]
+
+jobs:
+  starlite:
+    runs-on: ubuntu-latest
+    name: Starlite
+    steps:
+      # Run private
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      #- name: Login to GitHub Packages
+      #  uses: docker/login-action@v3
+      #  with:
+      #    registry: ghcr.io
+      #    username: ${{ github.actor }}
+      #    password: ${{ secrets.GHCR_TOKEN }}
+
+      #- name: Build and push image to GitHub Container Registry
+      #  uses: docker/build-push-action@v6
+      #  with:
+      #    context: ./
+      #    tags: ghcr.io/mikaelvesavuori/starlite-action:v0
+      #    push: ${{ github.ref == 'refs/heads/main' }}

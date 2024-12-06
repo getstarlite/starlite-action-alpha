@@ -1,0 +1,44 @@
+name: 'starlite-action-alpha'
+description: 'Integrates with Starlite (alpha)'
+branding:
+  icon: 'star'
+  color: 'blue'
+inputs:
+  api-key:
+    description: 'Starlite API key'
+    required: true
+  org-id:
+    description: 'Organization ID'
+    required: false
+  record-id:
+    description: 'Record ID'
+    required: false
+  run-catalog:
+    description: 'Run the catalog script?'
+    required: false
+    default: 'true'
+  run-standards:
+    description: 'Run the standards script?'
+    required: false
+    default: 'true'
+  run-deployment:
+    description: 'Run the deployment script?'
+    required: false
+    default: 'true'
+runs:
+  using: "composite"
+  steps:
+    - name: Run catalog script
+      if: ${{ inputs.run-catalog == 'true' }}
+      run: ${{ github.action_path }}/catalog.sh ${{ inputs.api-key }}
+      shell: bash
+
+    - name: Run standards script
+      if: ${{ inputs.run-standards == 'true' }}
+      run: ${{ github.action_path }}/standards.sh
+      shell: bash
+
+    - name: Run deployment script
+      if: ${{ inputs.run-deployment == 'true' }}
+      run: ${{ github.action_path }}/deployment.sh ${{ inputs.org-id }} ${{ inputs.record-id }} ${{ inputs.api-key }}
+      shell: bash

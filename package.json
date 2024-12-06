@@ -1,0 +1,37 @@
+{
+  "name": "standardlint-action-alpha",
+  "description": "Integrates your data with Starlite",
+  "version": "0.0.1",
+  "author": "Starlite",
+  "keywords": [
+    "starlite",
+    "dora",
+    "dora-metrics",
+    "devops",
+    "software-delivery",
+    "linter",
+    "audit",
+    "test-automation",
+    "standards",
+    "compliance",
+    "auditor",
+    "engops"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikaelvesavuori/starlite-action-alpha"
+  },
+  "bugs": {
+    "url": "https://github.com/mikaelvesavuori/starlite-action-alpha/issues"
+  },
+  "homepage": "https://github.com/mikaelvesavuori/starlite-alpha-action",
+  "scripts": {
+    "test": "bats test.bats",
+    "deploy": "bash starlite-action.sh --org-id \"demoorg\" --record-id \"demorecord\" --token \"abc123\" --action \"deployment\"",
+    "standards": "bash starlite-action.sh --org-id \"demoorg\" --record-id \"demorecord\" --token \"abc123\" --action \"standards\"",
+    "record": "bash starlite-action.sh --org-id \"demoorg\" --record-id \"demorecord\" --token \"abc123\" --action \"record\""
+  },
+  "dependencies": {
+    "standardlint": "^1.2.1"
+  }
+}
