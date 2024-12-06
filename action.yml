@@ -30,15 +30,15 @@ runs:
   steps:
     - name: Run catalog script
       if: ${{ inputs.skip-catalog == 'false' }}
-      run: ${{ github.action_path }}/bash starlite-action.sh --org-id ${{ inputs.org-id }} --record-id ${{ inputs.record-id }} --token ${{ inputs.api-key }} --action "catalog"
+      run: ${{ github.action_path }}/starlite-action.sh --org-id ${{ inputs.org-id }} --record-id ${{ inputs.record-id }} --token ${{ inputs.api-key }} --action "catalog"
       shell: bash
 
     - name: Run standards script
       if: ${{ inputs.skip-standards == 'false' }}
-      run: ${{ github.action_path }}/bash starlite-action.sh --org-id ${{ inputs.org-id }} --record-id ${{ inputs.record-id }} --token ${{ inputs.api-key }} --action "standards"
+      run: ${{ github.action_path }}/starlite-action.sh --org-id ${{ inputs.org-id }} --record-id ${{ inputs.record-id }} --token ${{ inputs.api-key }} --action "standards"
       shell: bash
 
     - name: Run deployment script
       if: ${{ inputs.skip-deployment == 'false' }}
-      run: ${{ github.action_path }}/bash starlite-action.sh --org-id ${{ inputs.org-id }} --record-id ${{ inputs.record-id }} --token ${{ inputs.api-key }} --action "deployment"
+      run: ${{ github.action_path }}/starlite-action.sh --org-id ${{ inputs.org-id }} --record-id ${{ inputs.record-id }} --token ${{ inputs.api-key }} --action "deployment"
       shell: bash
