@@ -13,32 +13,32 @@ inputs:
   record-id:
     description: 'Record ID'
     required: false
-  run-catalog:
-    description: 'Run the catalog script?'
+  skip-catalog:
+    description: 'Skip running the catalog script?'
     required: false
-    default: 'true'
-  run-standards:
-    description: 'Run the standards script?'
+    default: 'false'
+  skip-standards:
+    description: 'Skip running the standards script?'
     required: false
-    default: 'true'
-  run-deployment:
-    description: 'Run the deployment script?'
+    default: 'false'
+  skip-deployment:
+    description: 'Skip running the deployment script?'
     required: false
-    default: 'true'
+    default: 'false'
 runs:
   using: "composite"
   steps:
     - name: Run catalog script
-      if: ${{ inputs.run-catalog == 'true' }}
-      run: ${{ github.action_path }}/catalog.sh ${{ inputs.api-key }}
+      if: ${{ inputs.skip-catalog == 'false' }}
+      run: ${{ github.action_path }}/bash starlite-action.sh --org-id ${{ inputs.org-id }} --record-id ${{ inputs.record-id }} --token ${{ inputs.api-key }} --action "catalog"
       shell: bash
 
     - name: Run standards script
-      if: ${{ inputs.run-standards == 'true' }}
-      run: ${{ github.action_path }}/standards.sh
+      if: ${{ inputs.skip-standards == 'false' }}
+      run: ${{ github.action_path }}/bash starlite-action.sh --org-id ${{ inputs.org-id }} --record-id ${{ inputs.record-id }} --token ${{ inputs.api-key }} --action "standards"
       shell: bash
 
     - name: Run deployment script
-      if: ${{ inputs.run-deployment == 'true' }}
-      run: ${{ github.action_path }}/deployment.sh ${{ inputs.org-id }} ${{ inputs.record-id }} ${{ inputs.api-key }}
+      if: ${{ inputs.skip-deployment == 'false' }}
+      run: ${{ github.action_path }}/bash starlite-action.sh --org-id ${{ inputs.org-id }} --record-id ${{ inputs.record-id }} --token ${{ inputs.api-key }} --action "deployment"
       shell: bash
