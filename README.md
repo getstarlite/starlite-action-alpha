@@ -43,7 +43,7 @@ jobs:
       # Do your things here: build, test, deploy...
 
       - name: Run Starlite action (alpha)
-        uses: starlite/starlite-action-alpha@v0
+        uses: starlite/starlite-alpha@v0
         with:
           api-key: ${{ secrets.STARLITE_API_KEY }}
           org-id: 'demoorg'

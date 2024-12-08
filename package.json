@@ -19,17 +19,17 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/getstarlite/starlite-action-alpha"
+    "url": "git+https://github.com/getstarlite/starlite-alpha"
   },
   "bugs": {
-    "url": "https://github.com/getstarlite/starlite-action-alpha/issues"
+    "url": "https://github.com/getstarlite/starlite-alpha/issues"
   },
   "homepage": "https://github.com/getstarlite/starlite-alpha-action",
   "scripts": {
     "test": "bats test.bats",
-    "deploy": "bash starlite-action.sh --org-id \"demoorg\" --record-id \"demorecord\" --token \"abc123\" --action \"deployment\"",
-    "standards": "bash starlite-action.sh --org-id \"demoorg\" --record-id \"demorecord\" --token \"abc123\" --action \"standards\"",
-    "record": "bash starlite-action.sh --org-id \"demoorg\" --record-id \"demorecord\" --token \"abc123\" --action \"record\""
+    "deploy": "bash starlite.sh --org-id \"demoorg\" --record-id \"demorecord\" --token \"abc123\" --action \"deployment\"",
+    "standards": "bash starlite.sh --org-id \"demoorg\" --record-id \"demorecord\" --token \"abc123\" --action \"standards\"",
+    "record": "bash starlite.sh --org-id \"demoorg\" --record-id \"demorecord\" --token \"abc123\" --action \"record\""
   },
   "dependencies": {
     "standardlint": "^1.2.1"

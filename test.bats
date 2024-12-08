@@ -1,6 +1,6 @@
 #!/usr/bin/env bats
 
-load './starlite-action.sh'
+load './starlite.sh'
 
 # Mock environment variables
 setup() {

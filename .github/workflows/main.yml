@@ -20,5 +20,5 @@ jobs:
       #  uses: docker/build-push-action@v6
       #  with:
       #    context: ./
-      #    tags: ghcr.io/getstarlite/starlite-action:v0
+      #    tags: ghcr.io/getstarlite/starlite:v0
       #    push: ${{ github.ref == 'refs/heads/main' }}

@@ -1,4 +1,4 @@
-name: 'starlite-action-alpha'
+name: 'starlite-alpha'
 description: 'Integrates with Starlite (alpha)'
 branding:
   icon: 'star'
@@ -30,15 +30,15 @@ runs:
   steps:
     - name: Update record
       if: ${{ inputs.skip-record == 'false' }}
-      run: ${{ github.action_path }}/starlite-action.sh --org-id ${{ inputs.org-id }} --record-id ${{ inputs.record-id }} --token ${{ inputs.api-key }} --action "record"
+      run: ${{ github.action_path }}/starlite.sh --org-id ${{ inputs.org-id }} --record-id ${{ inputs.record-id }} --token ${{ inputs.api-key }} --action "record"
       shell: bash
 
     - name: Update standards
       if: ${{ inputs.skip-standards == 'false' }}
-      run: ${{ github.action_path }}/starlite-action.sh --org-id ${{ inputs.org-id }} --record-id ${{ inputs.record-id }} --token ${{ inputs.api-key }} --action "standards"
+      run: ${{ github.action_path }}/starlite.sh --org-id ${{ inputs.org-id }} --record-id ${{ inputs.record-id }} --token ${{ inputs.api-key }} --action "standards"
       shell: bash
 
     - name: Create deployment event
       if: ${{ inputs.skip-deployment == 'false' }}
-      run: ${{ github.action_path }}/starlite-action.sh --org-id ${{ inputs.org-id }} --record-id ${{ inputs.record-id }} --token ${{ inputs.api-key }} --action "deployment"
+      run: ${{ github.action_path }}/starlite.sh --org-id ${{ inputs.org-id }} --record-id ${{ inputs.record-id }} --token ${{ inputs.api-key }} --action "deployment"
       shell: bash
