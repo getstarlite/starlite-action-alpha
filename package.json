@@ -32,6 +32,6 @@
     "record": "bash starlite-action.sh --org-id \"demoorg\" --record-id \"demorecord\" --token \"abc123\" --action \"record\""
   },
   "dependencies": {
-    "standardlint": "latest"
+    "standardlint": "^1.2.1"
   }
 }
