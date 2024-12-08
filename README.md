@@ -48,5 +48,4 @@ jobs:
           api-key: ${{ secrets.STARLITE_API_KEY }}
           org-id: 'demoorg'
           record-id: 'demorecord'
-          run-standards: 'false'
 ```
