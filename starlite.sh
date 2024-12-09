@@ -114,8 +114,13 @@ handle_deployment() {
 
 handle_standards() {
   if [[ -f "standardlint.json" ]]; then
-    npm install standardlint
-    npx standardlint --output
+    if command -v node &>/dev/null; then
+      npm install standardlint
+      npx standardlint --output
+    else
+      echo "❌ Node.js is required to generate Standards output. Please make sure you have Node and NPM in your environment."
+      exit 1
+    fi
   fi
 
   if [[ -f "standardlint.results.json" ]]; then
