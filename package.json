@@ -1,7 +1,7 @@
 {
   "name": "starlite-action-alpha",
   "description": "Integrates your data with Starlite",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "author": "Starlite",
   "keywords": [
     "starlite",
@@ -33,6 +33,6 @@
     "push": "git tag -d v0 && git push origin -d v0 && git tag -a \"v0\" -m \"v0\" && git push origin v0"
   },
   "dependencies": {
-    "standardlint": "^1.2.1"
+    "standardlint": "latest"
   }
 }

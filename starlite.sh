@@ -94,21 +94,24 @@ handle_deployment() {
   fi
 
   # Create deployment data
-  local deployment_data
-  deployment_data=$(jq -n --arg event "deployment" --arg commitSha "$current_git_sha" \
-    '{ event: $event, commitSha: $commitSha }')
-  echo "$deployment_data" >deployment.json
+  local deployment_file="deployment.json"
+  cat >"$deployment_file" <<EOF
+{
+  "event": "deployment",
+  "commitSha": "$current_git_sha"
+}
+EOF
 
   # Send deployment data
   local url="$ENDPOINT_BASE/event/$ORG_ID/$RECORD_ID/$TOKEN"
-  if ! send_request "$url" "POST" "deployment.json"; then
+  if ! send_request "$url" "POST" "$deployment_file"; then
     echo "❌ ERROR: Failed to send deployment data." >&2
-    rm -f deployment.json
+    rm -f "$deployment_file"
     return 1
   fi
 
   echo "✅ Deployment data successfully sent."
-  rm -f deployment.json
+  rm -f "$deployment_file"
   return 0
 }
 
